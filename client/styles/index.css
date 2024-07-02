@@ -1,0 +1,22 @@
+.container{
+    padding: 15px;
+    margin: 10px 40px;
+}
+
+.container .upper-para{
+    margin-bottom: 40px;
+}
+
+.container .h1-text{
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 3px;
+}
+
+.container .medium-text{
+    width: 90%;
+    margin-top: 10px;
+    font-size: 20px;
+    line-height: 35px;
+    letter-spacing: 1px;
+}
