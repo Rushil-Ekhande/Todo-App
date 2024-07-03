@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/chrome.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
   </head>
   <body>
     <div class="main">
@@ -28,20 +29,26 @@
       </header>
       <main>
         <div class="container">
-          <div class="upper-para">
-            <h2 class="h1-text">What is Todos?</h2>
-            <p class="medium-text">Todos is an online platform for Humans (In some rare cases animals too) to maintain a check list for the tasks they need to perform throughout the day. </p>
-          </div>
-          <div class="upper-para">
-            <h2 class="h1-text">Why To Use Todos?</h2>
-            <p class="medium-text">I mean leaving aside the fact, that we both know it is the best website for todos, it still has good features like, great UI/UX, a really reall unique concept of creating and saving Todo's (no one would have thought of it). </p>
-          </div>
-          <div class="upper-para">
-            <h2 class="h1-text">How To Use Todos?</h2>
-            <p class="medium-text">I mean leaving aside the fact, that we both know it is the best website for todos, it still has good features like, great UI/UX, a really reall unique concept of creating and saving Todo's (no one would have thought of it). </p>
+          <h2 class="dashboard-heading">Create Todo</h2>
+          <form class="form">
+            <label for="todo-title" class="label">Todo Title</label>
+            <input type="text" id="todo-title" class="todo-title">
+            <label for="todo-content" class="label">Todo Detail</label>
+            <textarea name="todo-content" id="todo-content" class="todo-content" rows="10"></textarea>
+            <button class="btn">Create Todo</button>
+          </form>
+          <div class="display-todo">
+              <h2 class="dashboard-heading your-todo-heading">
+                  Your Todos
+                </h2>
+                <div class="divider"></div>
+                <div class="todos-list">
+                    <p class="Display-text">No Todos Yet | Created Todos will be shown here</p>
+                </div>
           </div>
         </div>
       </main>
     </div>
+    <script src="scripts/dashboard.js"></script>
   </body>
 </html>

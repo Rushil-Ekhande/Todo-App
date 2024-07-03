@@ -1,0 +1,76 @@
+.dashboard-heading{
+    font-size: 40px;
+    font-weight: 550;
+    letter-spacing: 3px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.form #todo-content {
+    width: 100%;
+    background-color: #222222;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid grey;
+    letter-spacing: 2px;
+
+}
+
+.form #todo-title{
+    width: 100%;
+    background-color: #222222;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid grey;
+    letter-spacing: 2px;
+}
+
+.form .label{
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.btn{
+    border: none;
+    padding: 10px 15px;
+    width: 16%;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.btn:hover{
+    opacity: 0.8;
+}
+
+.btn:active{
+    opacity: 0.6;
+}
+
+.your-todo-heading{
+    margin-top: 20px;
+}
+
+.divider{
+    padding: 1px;
+    background-color: #fff;
+    margin-top: 20px;
+}
+
+.todos-list{
+    padding: 10px;
+}
+
+.Display-text{
+    letter-spacing: 2px;
+    margin: 20px 0;
+}
