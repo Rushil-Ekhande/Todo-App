@@ -59,7 +59,7 @@ export async function Login(req, res) {
         } else {
             const user = await User.find({ email });
             const isPasswordCorrect = await bcrypt.compare(password, user.password);
-            if (isPasswordCorrect) {
+            if (isPasswordCorrect){
                 const token = jwt.sign(user, process.env.JWT_SECRET, { expiresIn: '1h' })
                 res.cookie('authToken', token);
                 res.json({

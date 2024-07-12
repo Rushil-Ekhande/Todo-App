@@ -19,9 +19,6 @@ const userSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Todo'
     }],
-    isLogedIn: {
-        type: Boolean,
-    }
 });
 
 const User = mongoose.model('User', userSchema);
