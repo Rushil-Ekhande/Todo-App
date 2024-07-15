@@ -55,3 +55,22 @@
 .label{
     font-size: 18px;
 }
+
+.loginBtn{
+    border: none;
+    width: 30%;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 50px;
+    font-size: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.loginBtn:hover{
+    opacity: 0.9;
+}
+
+.loginBtn:hover{
+    opacity: 0.7;
+}

@@ -57,10 +57,16 @@ export async function Login(req, res) {
                 message: "All fields are required"
             })
         } else {
-            const user = await User.find({ email });
+            const user = await User.findOne({ email }).populate('todos');
             const isPasswordCorrect = await bcrypt.compare(password, user.password);
             if (isPasswordCorrect){
-                const token = jwt.sign(user, process.env.JWT_SECRET, { expiresIn: '1h' })
+                const userData = {
+                    id: user._id,
+                    username: user.username,
+                    email: user.email,
+                    todos: user.todos
+                }
+                const token = jwt.sign(userData, process.env.JWT_SECRET, { expiresIn: '1h' })
                 res.cookie('authToken', token);
                 res.json({
                     success: true,

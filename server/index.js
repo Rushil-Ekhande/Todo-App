@@ -24,7 +24,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 import TodoCreateRoute from "./routes/todoCreateRoute.js"
+import AuthenticationRoutes from "./routes/authenticationRoute.js"
 
 app.use('/create-todo', TodoCreateRoute);
+app.use('/user', AuthenticationRoutes);
 
 
