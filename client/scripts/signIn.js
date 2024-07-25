@@ -16,7 +16,9 @@ loginBtn.addEventListener('click', async (e) => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(userLoginData),
+        credentials: 'include' 
     });
+    console.log(response);
     const data = await response.json();
     if(data){
         alert(data.message);

@@ -59,20 +59,31 @@ export async function Login(req, res) {
         } else {
             const user = await User.findOne({ email }).populate('todos');
             const isPasswordCorrect = await bcrypt.compare(password, user.password);
-            if (isPasswordCorrect){
+            if (isPasswordCorrect) {
                 const userData = {
                     id: user._id,
                     username: user.username,
                     email: user.email,
                     todos: user.todos
                 }
-                const token = jwt.sign(userData, process.env.JWT_SECRET, { expiresIn: '1h' })
-                res.cookie('authToken', token);
-                res.json({
-                    success: true,
-                    message: 'Login successful'
+                jwt.sign(userData, process.env.JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
+                    if (err) {
+                        console.log(err);
+                    }
+                    res.cookie('authToken', token, {
+                        maxAge: 24 * 60 * 60 * 1000, // 24 hrs
+                        httpOnly: true, // Optional: makes the cookie inaccessible to JavaScript's Document.cookie API
+                        secure: true, // Set to true if using HTTPS
+                        sameSite: 'None', // Adjust as needed ('Strict', 'Lax', 'None')
+                        path: '/'  
+                    });
+                    res.json({
+                        success: true,
+                        message: 'Login successful'
+                    });
                 });
-            }else{
+
+            } else {
                 res.json({
                     success: false,
                     message: "Incorrect password"
