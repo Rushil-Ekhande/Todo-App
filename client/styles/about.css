@@ -1,0 +1,53 @@
+.heading{
+    font-size: 30px;
+}
+
+.para{
+    letter-spacing: 2px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    line-height: 30px;
+}
+
+.para-p{
+    font-family:18px;
+}
+
+.middle-heading{
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 3px;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.rating-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rating-div img{
+    height: 150px;
+    width: 150px;
+    cursor: pointer;
+}
+
+.rating-div img:hover{
+   opacity: 0.5;
+}
+
+.btn-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-div .btn{
+    padding: 10px 20px;
+    background-color: white;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 50px;
+}

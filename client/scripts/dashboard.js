@@ -31,5 +31,4 @@ todo_create_btn.addEventListener('click', async (e) => {
         alert("No response from create-todo Api")
     }
     location.reload();
-})
-
+});

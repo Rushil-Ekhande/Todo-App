@@ -16,6 +16,12 @@ body{
     background: rgb(33, 36, 37);
 }
 
+.divider{
+    padding: 1px;
+    background-color: #fff;
+    margin-top: 20px;
+}
+
 .navbar{
     display: flex;
     align-items: center;
