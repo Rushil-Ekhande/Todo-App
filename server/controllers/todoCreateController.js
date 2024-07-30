@@ -1,8 +1,10 @@
 import Todo from "../models/TodoModel.js";
+import User from "../models/UserModel.js";
 
 export async function todoCreateController(req, res) {
     try {
         const {title, content} = req.body;
+        const user = req.user;
 
         if(title == null || content == null){
             return res.json({
@@ -21,6 +23,10 @@ export async function todoCreateController(req, res) {
 
         const saveNewTodo = await newTodo.save();
 
+        const userModel = await User.findByIdAndUpdate(user.id, 
+            { $push: { todos: saveNewTodo._id } },
+        );
+        await userModel.save();
         if(saveNewTodo){
             return res.json({
                 success: true,

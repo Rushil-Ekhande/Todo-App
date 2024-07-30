@@ -2,11 +2,12 @@ import jwt from "jsonwebtoken";
 
 export async function getAuthToken(req, res, next) {
     const token = req.cookies.authToken;
+    console.log(token);
     if(!token){
         return res.json({
             success: false,
             message: "Access Denied. Login in to use this feature."
-        })
+        });
     }
     jwt.verify(token, process.env.JWT_SECRET,(err, user) => {
         if (err) {

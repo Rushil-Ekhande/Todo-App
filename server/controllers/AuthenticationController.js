@@ -71,11 +71,10 @@ export async function Login(req, res) {
                         console.log(err);
                     }
                     res.cookie('authToken', token, {
-                        maxAge: 24 * 60 * 60 * 1000, // 24 hrs
-                        httpOnly: true, // Optional: makes the cookie inaccessible to JavaScript's Document.cookie API
+                        maxAge: 1 * 60 * 60 * 1000, // 24 hrs
+                        // httpOnly: true, // Optional: makes the cookie inaccessible to JavaScript's Document.cookie API
                         secure: true, // Set to true if using HTTPS
                         sameSite: 'None', // Adjust as needed ('Strict', 'Lax', 'None')
-                        path: '/'  
                     });
                     res.json({
                         success: true,
