@@ -22,6 +22,7 @@ loginBtn.addEventListener('click', async (e) => {
     const data = await response.json();
     if(data){
         alert(data.message);
+        localStorage.setItem('authToken',data.token);
      }else{
         alert("No response from User Login Api");
      }

@@ -7,12 +7,9 @@ import cookieParser from "cookie-parser";
 const app = express();
 const PORT = process.env.PORT;
 
-app.use(cookieParser());
+app.use(cors());
 app.use(express.json());
-app.use(cors({
-    origin: 'http://127.0.0.1:5500', // Replace with your frontend origin
-    credentials: true, // Allow cookies to be sent and received
-  }));
+app.use(cookieParser());
 
 mongoose.connect(process.env.MONGODB_ATLAS_CONNECTION_STRING)
 

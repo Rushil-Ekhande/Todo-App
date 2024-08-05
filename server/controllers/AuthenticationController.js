@@ -70,14 +70,9 @@ export async function Login(req, res) {
                     if (err) {
                         console.log(err);
                     }
-                    res.cookie('authToken', token, {
-                        maxAge: 1 * 60 * 60 * 1000, // 24 hrs
-                        // httpOnly: true, // Optional: makes the cookie inaccessible to JavaScript's Document.cookie API
-                        secure: true, // Set to true if using HTTPS
-                        sameSite: 'None', // Adjust as needed ('Strict', 'Lax', 'None')
-                    });
                     res.json({
                         success: true,
+                        token: token,
                         message: 'Login successful'
                     });
                 });
