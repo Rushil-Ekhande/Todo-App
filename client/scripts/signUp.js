@@ -4,13 +4,13 @@ const registerBtn = document.getElementsByClassName('registerBtn')[0];
 
 registerBtn.addEventListener('click', async (e) => {
     e.preventDefault();
-    const username = document.getElementsByClassName('username')[0].value;
-    const email = document.getElementsByClassName('email')[0].value;
-    const password = document.getElementsByClassName('password')[0].value;
+    const username = document.getElementsByClassName('username')[0];
+    const email = document.getElementsByClassName('email')[0];
+    const password = document.getElementsByClassName('password')[0];
     const userData = {
-        username: username,
-        email: email,
-        password: password
+        username: username.value,
+        email: email.value,
+        password: password.value
     }
     console.log(userData);
      const response = await fetch('http://localhost:3300/user/register', {
@@ -26,4 +26,7 @@ registerBtn.addEventListener('click', async (e) => {
      }else{
         alert("No response from User Register Api");
      }
+     username.value = "";
+     email.value = "";
+     password.value = "";
 });

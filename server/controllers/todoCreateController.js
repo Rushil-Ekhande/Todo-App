@@ -12,7 +12,7 @@ export async function todoCreateController(req, res) {
                 message: "All fields must be filled"
             })
         }else{
-        console.log(title, content);
+        // console.log(title, content);
 
         const data = {
             title: title,

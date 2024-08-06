@@ -79,15 +79,33 @@
     flex-direction: column;
     border: 1px solid white;
     line-height: 30px;
-    padding: 10px;
+    padding: 20px 15px;
     margin: 10px;
+    font-family: "Poppins", sans-serif;
 }
 .todoTitle{
     letter-spacing: 3px;
-    font-weight: 600;
-    font-size: 18px;
+    font-weight: 400;
+    font-size: 20px;
 }
 .todoDesc{
     letter-spacing: 1px;
     font-size: 16px;
+}
+.top-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.del_btn{
+    /* background-color: black; */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.del_icon{
+    height: 25px;
 }
