@@ -17,10 +17,16 @@ const getTodos = async () => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(dataToBeSend),
-    });
+    }); 
+    if(!response){
+        let todos_list = document.querySelector('.todos-list');
+        let p = document.createElement('p');
+        p.innerText = "No Todos Yet | Created Todos will be shown here";
+        p.classList.add('Display-text');
+        todos_list.appendChild(p)
+    }
     const data = await response.json();
     if(data){
-        console.log();
         for(i=0;i<data.user.todos.length;i++){
             createTodoNode(data.user.todos[i]);
         }
@@ -29,7 +35,7 @@ const getTodos = async () => {
     }
 };
 
-const createTodoNode = (todo) => {
+const createTodoNode = (todo) => {    
     const div = document.createElement('div');
     const top_div = document.createElement('div');
     const title = document.createElement('p');
@@ -52,9 +58,14 @@ const createTodoNode = (todo) => {
     title.classList.add('todoTitle');
     desc.classList.add('todoDesc');
 
-    del_btn.addEventListener('click', (e)=>{
-        console.log(e);
-        console.log("hello");
+    del_icon.setAttribute('data-id', todo._id);
+    del_icon.addEventListener('click', async (e)=>{
+        console.log(e.target);
+        
+        let todo_id = e.target.getAttribute('data-id');
+        console.log(todo_id);
+        await deleteTodo(todo_id);
+        // e.target.parentElement.remove();
     })
 
     div.appendChild(top_div);
@@ -78,6 +89,7 @@ todo_create_btn.addEventListener('click', async (e) => {
         },
         body: JSON.stringify(dataToBeSend),
     })
+
     const data = await response.json();
     if(data){
         alert(data.message);
@@ -89,4 +101,24 @@ todo_create_btn.addEventListener('click', async (e) => {
     todo_content.value = "";
 });
 
-
+const deleteTodo = async(todo_id) => {
+    console.log(todo_id);
+    
+    const dataToBeSend = {
+        token: localStorage.getItem('authToken')
+    }
+    const response = await fetch(`http://localhost:3300/create-todo/delete/${todo_id}`, {
+        method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(dataToBeSend),
+    }); 
+    const data = await response.json();
+    if(data){
+        alert(data.message);
+        location.reload();
+    }else{
+        alert("No response from create-todo Api")
+    }
+}

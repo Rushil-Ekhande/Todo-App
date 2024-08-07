@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 export async function getAuthToken(req, res, next) {
-    const token = req.body.token;
+    const {token} = req.body;
     // console.log(token);
     if(!token){
         return res.json({
