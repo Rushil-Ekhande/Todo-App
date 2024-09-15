@@ -60,13 +60,9 @@ const createTodoNode = (todo) => {
 
     del_icon.setAttribute('data-id', todo._id);
     del_icon.addEventListener('click', async (e)=>{
-        console.log(e.target);
-        
         let todo_id = e.target.getAttribute('data-id');
-        console.log(todo_id);
         await deleteTodo(todo_id);
-        // e.target.parentElement.remove();
-    })
+    });
 
     div.appendChild(top_div);
     div.appendChild(desc);
